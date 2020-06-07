@@ -13,6 +13,16 @@
 
 #include "stm32f4xx_hal.h"
 
+#ifndef TRUE
+    #define TRUE				1
+#endif
+
+#ifndef FALSE
+    #define FALSE				0
+#endif
+
+#define R_TIA 10000 //ohms
+
 struct CV_Configuration_S {
 
 	double eBegin;
@@ -23,5 +33,10 @@ struct CV_Configuration_S {
 	double eStep;
 
 };
+
+//Prototypes
+void CyclicVoltammetry(void);
+void CV_Measures(void);
+
 
 #endif /* INC_COMPONENTS_CYCLIC_VOLTAMMETRY_H_ */
