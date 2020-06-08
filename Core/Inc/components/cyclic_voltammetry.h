@@ -21,7 +21,6 @@
     #define FALSE				0
 #endif
 
-#define R_TIA 10000 //ohms
 
 struct CV_Configuration_S {
 

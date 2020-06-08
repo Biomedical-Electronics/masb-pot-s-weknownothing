@@ -15,16 +15,17 @@
 relayClosed = GPIO_PIN_SET;
 relayOpened = GPIO_PIN_RESET;
 
-_Bool samplingPeriod =FALSE;
-
+struct CV_Configuration_S cvConfiguration;
 
 void CyclicVoltammetry(void){
-	for (uint8_t i =0; i < cycles; i++){
+	for (uint8_t i =0; i < cvConfigutation.cycles; i++){
 		Vcell = eBegin; //set Vcell as eBegin
 		vObjetivo = eVertex1;
 		HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, relayClosed); //closing relay
+		wait = TRUE;
 		SamplingPeriodTimerCV();
-		CV_Measures();
+		while (wait){}; //while the period has not passed, wait
+		Vcell = Cell_Measures(); //adc function to measure Vcell
 		MASB_COMM_S_sendData();
 		if (Vcell == vObjetivo){
 			if (vObjetivo == eVertex1){
@@ -33,7 +34,7 @@ void CyclicVoltammetry(void){
 				if (vObjetivo == eVertex2){
 					vObjetivo = eBegin;
 				}else{
-					if (i==cycles){
+					if (i==cvConfiguration.cycles){
 						HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, relayOpened);
 					}else{
 						vObjetivo=eVertex1;
@@ -58,12 +59,4 @@ void CyclicVoltammetry(void){
 	}
 }
 
-
-void CV_Measures(void){
-	//Measure Vcell (real, from ADC) and Icell
-	Vcell= (1.65-Vadc)*2;
-	Icell= ((Vadc-1.65)*2)/R_TIA;
-
-	return Vcell, Icell;
-}
 
