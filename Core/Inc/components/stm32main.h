@@ -11,9 +11,14 @@
 #include "stm32f4xx_hal.h"
 #include "cobs.h"
 
+#define CV 01
+#define CA 02
+#define IDLE 03
+
+
 //function prototypes
 void setup(void);
 void loop(void);
-
+void obtainState (uint8_t Estado);
 
 #endif /* INC_COMPONENTS_STM32MAIN_H_ */
