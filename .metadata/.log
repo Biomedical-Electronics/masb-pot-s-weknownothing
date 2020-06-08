@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 !SESSION 2020-05-16 13:02:29.683 -----------------------------------------------
 eclipse.buildId=Version 1.2.0
 java.version=1.8.0_202
@@ -601,4 +602,20 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 !MESSAGE Started RMI Server, listening on port 41337
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-06-02 10:35:31.163
+=======
+!SESSION 2020-06-07 12:00:54.266 -----------------------------------------------
+eclipse.buildId=Version 1.3.0
+java.version=1.8.0_242
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-06-07 12:01:21.294
+!MESSAGE Log4j initialized with config file C:\Users\Maria Bel\Desktop\Enginyeria biomedica\4\2 semestre\Microcontroladors\mab-pot-s-weknownothing\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-06-07 12:01:23.405
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-06-07 12:01:24.321
+>>>>>>> c5ef8959aed26af66ba3d2002591af0c45c2f0ab
 !MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
