@@ -5,8 +5,10 @@
 #include "components/cyclic_voltammetry.h"
 
 TIM_HandleTypeDef htim3;
-struct CV_Configuration_S cvConfiguration;
-struct CA_Configuration_S caConfiguration;
+struct CV_Configuration_S cvConfiguration; //save CV data
+struct CA_Configuration_S caConfiguration; //save CA data
+
+_Bool wait;
 
 void SamplingPeriodTimerCA(void){
 	//CA timer
@@ -41,6 +43,7 @@ void SamplingPeriodTimerCA(void){
 	HAL_TIM_Base_Init(&htim3); //initialize timer
 
 	HAL_TIM_Base_Start_IT(&htim3); //start timer
+
 }
 
 void SamplingPeriodTimerCV(void){
@@ -76,5 +79,11 @@ void SamplingPeriodTimerCV(void){
 	HAL_TIM_Base_Init(&htim3); //initialize timer
 
 	HAL_TIM_Base_Start_IT(&htim3); //start timer
+
 }
 
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+
+	wait = FALSE;
+
+}
