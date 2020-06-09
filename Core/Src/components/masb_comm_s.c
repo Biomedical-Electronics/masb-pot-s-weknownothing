@@ -24,6 +24,7 @@ uint8_t rxIndex = 0;
 
 _Bool dataReceived = FALSE;
 
+
 // Prototypes.
 static double saveByteArrayAsDoubleFromBuffer(uint8_t *buffer, uint8_t index);
 static double saveByteArrayAsLongFromBuffer(uint8_t *buffer, uint8_t index);
@@ -43,6 +44,14 @@ union Long_Converter {
 	uint8_t b[4];
 
 } longConverter;
+
+void MASB_COMM_S_controlPMU(void){
+/*PMU is responsible for powering the entire front end.
+ * It is enabled through the EN pin when the EVB negotiates a maximum consumption with the USB controller.
+ */
+
+	HAL_GPIO_WritePin(EN_GPIO_Port, EN_Pin, PMUenabled); // to write High in pin EN
+}
 
 void MASB_COMM_S_waitForMessage(void) {
 
