@@ -21,6 +21,8 @@
     #define FALSE				0
 #endif
 
+#define RELAY_Pin GPIO_PIN_5
+#define RELAY_GPIO_Port GPIOB
 
 struct CV_Configuration_S {
 
