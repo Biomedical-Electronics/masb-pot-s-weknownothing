@@ -17,11 +17,15 @@ double Vcell;
 double vObjetivo;
 _Bool wait;
 
+uint32_t currentMillis = 0;  // actual ms
+uint32_t measureMillis = 0;  // ms that have passed
+
 struct CV_Configuration_S cvConfiguration;
 struct Data_S data;
 
 
 void CyclicVoltammetry(void){
+	currentMillis =HAL_GetTick();
 	for (double i =0; i < cvConfiguration.cycles; i++){
 		SendVoltageToDAC(cvConfiguration.eBegin); //set Vcell as eBegin
 
@@ -32,9 +36,12 @@ void CyclicVoltammetry(void){
 		SamplingPeriodTimerCV();
 		while (wait){}; //while the period has not passed, wait
 
+		measureMillis = HAL_GetTick();
+
 		data.point= i ;
 		data.current = Obtain_Icell();
 		data.voltage= Obtain_Vcell() ;
+		data.timeMs= (measureMillis - currentMillis)*data.point;
 
 		MASB_COMM_S_sendData(data);
 
