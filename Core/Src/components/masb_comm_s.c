@@ -23,7 +23,7 @@ uint8_t rxBufferDecoded[UART_BUFF_SIZE] = { 0 },
 uint8_t rxIndex = 0;
 
 _Bool dataReceived = FALSE;
-_Bool PMUenabled= TRUE;
+
 
 // Prototypes.
 static double saveByteArrayAsDoubleFromBuffer(uint8_t *buffer, uint8_t index);

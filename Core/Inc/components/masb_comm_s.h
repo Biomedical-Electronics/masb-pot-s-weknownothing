@@ -23,6 +23,11 @@
 #define START_CA_MEAS		0x02
 #define STOP_MEAS			0x03
 
+#define EN_Pin GPIO_PIN_5
+#define EN_GPIO_Port GPIOA
+
+#define PMUenabled GPIO_PIN_SET
+
 #ifndef TRUE
     #define TRUE				1
 #endif
