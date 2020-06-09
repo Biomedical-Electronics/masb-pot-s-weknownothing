@@ -11,22 +11,38 @@
 #include "components/timers.h"
 #include "components/masb_comm_s.h"
 #include "components/adc.h"
+#include "components/dac.h"
+#include "main.h"
 
-relayClosed= GPIO_PIN_SET;
-relayOpened= GPIO_PIN_RESET;
+
+_Bool wait;
+double Vcell;
+
 
 struct CA_Configuration_S caConfiguration;
+struct Data_S data;
 
 void ChronoAmperometry(void){
+	for (int i= 0;i < caConfiguration.measurementTime/caConfiguration.samplingPeriodMs;i++){
+	SendVoltageToDAC(caConfiguration.eDC);
 
-	Vcell= caConfiguration.eDC;
+	HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, relayClosed); //close the relay
 	wait = TRUE;
 	SamplingPeriodTimerCA();
+
 	while (wait){} //if the period has not passed, wait
 
-	Vcell= Cell_Measures(); // measure Vcell through ADC
-	MASB_COMM_S_sendData();
-	//While (measurementTime){}
-		HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin,relayOpened);
+	// measure Vcell through ADC
+	data.point=i;
 
+	data.current=Obtain_Icell();
+	data.voltage=Obtain_Vcell() ;
+	data.timeMs=data.point;//something
+
+	MASB_COMM_S_sendData(data);
+	if (i== caConfiguration.measurementTime/caConfiguration.samplingPeriodMs){
+		HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, relayOpened);
+	}
+	}
 }
+
