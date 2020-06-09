@@ -1,7 +1,7 @@
 # Potentiostat Project 
 
 [//]: # "Maria Bel Bordoy Pont, e-mail: mariabelbordoy@gmail.com, LinkedIn: linkedin.com/in/maria-isabel-bordoy-pont"
-[//]: # "Omilén Pangue, e.mail:    , LinkedIn: "
+[//]: # "Omilén Pangue, omilenpangue@gmail.com  , LinkedIn: https://www.linkedin.com/in/omilen-pangue-bustamante "
 
 #### What is a potentiostat? 
 
@@ -33,13 +33,13 @@ A CV system consists of an electrolysis cell, a potentiostat, a current-to-volta
 ## Content
 
 - [Introduction](#potentiostat-project)
-  - [What is a potentiostat?](#what-is-a-potentiostat)
+  - [What is a potentiostat?](#what-is-a-potentiostat-?)
   - [Cyclic Voltammetry](#cyclic-voltammetry)
   - [Chronoamperometry](#chronoamperometry)
 - [Objective](#objective)
 - [Project development](#Project-development) 
   - [Workflow](#workflow)
-  - [How does it work?](#How-does-it-work)
+  - [How does it work?](#How-does-it-work-?)
   - [Flow diagrams](#flow-diagrams)
 - [Results](#results)
 - [Conclusions](#conclusions)
@@ -91,7 +91,7 @@ To obtain the cell current, a transimpedance amplifier with a R<sub>TIA</sub> of
 
 Each module is defined to obtain a global visualization of the system: 
 
-###### Power Management Uni (PMU) 
+###### Power Management Unit (PMU) 
 
 PMU feeds the front-end and by default is disabled in order to not use current until the maximum consumption is defined by the USB port. Once this consumption is defined, the microcontroller will be feed. 
 
@@ -107,12 +107,39 @@ The potentiostat is used to polarize the electrochemical cell to V<sub>CELL</sub
 
 ### Flow Diagram
 
+The following flow diagram explain the execution of the program at different levels:
+##### Main application
+In the following flow the interaction between the user and the viSense-S application is showed.
 <p align="center">
 <a href="Docs/assets/imgs/flow-project.png">
 <img src="Docs/assets/imgs/flow-project.png" alt="Flow" width=400 />
 </a>
 </p>
+##### Microcontroller
+The flow diagram below shows how the microntroller operates depending on the instruction received:
+<p align="center">
+<a href="Docs/assets/imgs/Main application_eng.png">
+<img src="Docs/assets/imgs/Main application_eng.png" alt="Microcontroller flow" width=400 />
+</a>
+</p>
 
+##### Cyclic voltammetry
+The following flow explains the operation of the microcontroller if a cyclic voltammetry has to be performed.
+<p align="center">
+<a href="Docs/assets/imgs/Voltammetry_eng.png">
+<img src="Docs/assets/imgs/Voltammetry_eng.png" alt="Voltammetry flow" width=400 />
+</a>
+</p>
+As explained before, when performing a cyclic voltammetry, a voltage sweep is to be performed. This is done by applying a starting tension `eBegin`that is then increased or decrease until achieving `eVertex1`or `eVertex2` by adding (or substracting) `eSteps`. Finally, another sweep in order to return to `eBegin`is done. This corresponds to a cycle and it will be done as many times as `cycles`states.
+
+##### Chronoamperometry
+Finally, the following diagram shows the behavior of the microcontroller when a chronoamperometry has to be done.
+<p align="center">
+<a href="Docs/assets/imgs/CA_eng.png">
+<img src="Docs/assets/imgs/CA_eng.png" alt="Chronoamperommetry flow" width=400 />
+</a>
+</p>
+For this technique, the tension Vcell is set and stays constant for the time indicated in `measurementTime`. The sample is acquired following the period indicated in `samplingPeriodMs`.
 ## Results 
 
 Due to the [COVID-19](#https://covid19.who.int/) situation, in which the project has been carried out, the codes programmed during the project haven't been tested and a proof of concept couldn't be performed. 
