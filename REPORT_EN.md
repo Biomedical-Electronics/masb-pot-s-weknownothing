@@ -10,10 +10,11 @@ A [potentiostat](#https://ieeexplore-ieee-org.sire.ub.edu/document/5236124) is t
 The potentiostat utilizes three-electrodes: a) the working electrode (WE), which serves as a surface on with the electrochemical reaction takes place; b) the reference electrode (RE), used to measure the potential at the WE, and c) the auxiliary electrode (AUX), which supplies the needed current required for the electrochemical reaction at the WE. 
 
 <p align="center">
-<a href="../assets/imgs/potentiostat.png">
-<img src="../assets/imgs/potentiostat.png" alt="Potentiostat" width=400 />
+<a href="Docs/assets/imgs/potentiostat.png">
+<img src="Docs/assets/imgs/potentiostat.png" alt="Potentiostat" width=400 />
 </a>
 </p>
+
 
 > Potentiostat Schematic. [[Source](https://en.wikipedia.org/wiki/Potentiostat)]
 
@@ -63,10 +64,11 @@ From this general objectives, different goals can be summed up:
 The workflow is similar as in other projects developed in this subject. 
 
 <p align="center">
-<a href="../assets/imgs/git-tree.png">
-<img src="../assets/imgs/git-tree.png" alt="Workflow" width=400 />
+<a href="Docs/assets/imgs/git-tree.png">
+<img src="Docs/assets/imgs/git-tree.png" alt="Workflow" width=400 />
 </a>
 </p>
+
 
 From the **master** branch, the repository is cloned and a **develop** branch is created. Then, for every functionality, a branch named **feature/---** , where --- is the name of the functionality, is created. If a correction needs to be made, a  branch named **hotfix/--** will be created. 
 
@@ -77,10 +79,11 @@ Finally, all codes from all **feature** branches will be merged with **develop**
 Using the [viSens-S](#https://github.com/Albert-Alvarez/viSens-S/releases/tag/v0.1.0) software
 
 <p align="center">
-<a href="../assets/imgs/flow-project.png">
-<img src="../assets/imgs/flow-project.png" alt="Flow" width=400 />
+<a href="Docs/assets/imgs/flow-project.png">
+<img src="Docs/assets/imgs/flow-project.png" alt="Flow" width=400 />
 </a>
 </p>
+
 
 ## Results 
 
