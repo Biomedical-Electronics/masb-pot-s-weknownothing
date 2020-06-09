@@ -106,16 +106,16 @@ A continuación de detallan los flujos de ejecución a diferentes niveles:
 En el siguiente flujo se aprecia la interacción del usuario con la aplicación viSense-S y la aplicación en general.
 
 <p align="center">
-<a href="Docs/assets/imgs/Aplication_ES.png">
-<img src="Docs/assets/imgs/Aplication_ES.png" alt="Flow" width=400 />
+<a href="Docs/assets/imgs/Aplication_es.png">
+<img src="Docs/assets/imgs/Aplication_es.png" alt="Flow" width=400 />
 </a>
 </p>
 
 ##### Microcontrolador
 A continuación se detalla el flujo correspondiente al microcontrolador según la instrucción que recibe del host.
 <p align="center">
-<a href="Docs/assets/imgs/Main application_es.png">
-<img src="Docs/assets/imgs/Main application_es.png" alt="Microcontrolador" width=400 />
+<a href="Docs/assets/imgs/Main application_ES.png">
+<img src="Docs/assets/imgs/Main application_ES.png" alt="Microcontrolador" width=400 />
 </a>
 </p>
 ##### Voltammetría cíclica
@@ -125,7 +125,7 @@ En el siguiente flujo se detalla el funcionamiento del microcontrolador a la hor
 <img src="Docs/assets/imgs/Voltammetry_es.png" alt="Voltammetria" width=400 />
 </a>
 </p>
-Como se ha explicado anteriormente, en una voltammetría cíclica se realiza un barrido en tensión sobre la celda electroquímica. Esto lo realizamos aplicando para empezar una tensión `eBegin` (a través del DAC) la cual va aumentando o disminuyendo mediante `eStep` hasta llegar a `eVertex1` o `eVertex2`(si partimos de `eVertex1`). Finalmente, se hace un barrido a `eBegin`. Esto se corresponde a un ciclo y se realizarán tantos ciclos como se indique en `cycles`.
+Como se ha explicado anteriormente, en una voltammetría cíclica se realiza un barrido en tensión sobre la celda electroquímica. Esto lo realizamos aplicando para empezar una tensión `eBegin` (a través del DAC) la cual va aumentando o disminuyendo mediante `eStep` hasta llegar a `eVertex1` o `eVertex2` (si partimos de `eVertex1`). Finalmente, se hace un barrido a `eBegin`. Esto se corresponde a un ciclo y se realizarán tantos ciclos como se indique en `cycles` .
 ##### Cronoamperometría
 Finalmente, en el siguiente flujo el funcionamiento del microcontrolador cuando realiza una cronoamperometría queda detallado:
 

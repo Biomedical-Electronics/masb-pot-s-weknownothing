@@ -133,7 +133,7 @@ The following flow explains the operation of the microcontroller if a cyclic vol
 <img src="Docs/assets/imgs/Voltammetry_eng.png" alt="Voltammetry flow" width=400 />
 </a>
 </p>
-As explained before, when performing a cyclic voltammetry, a voltage sweep is to be performed. This is done by applying a starting tension `eBegin`that is then increased or decrease until achieving `eVertex1`or `eVertex2` by adding (or subtracting) `eSteps`. Finally, another sweep in order to return to `eBegin`is done. This corresponds to a cycle and it will be done as many times as `cycles` states.
+As explained before, when performing a cyclic voltammetry, a voltage sweep is to be performed. This is done by applying a starting tension `eBegin` that is then increased or decrease until achieving `eVertex1` or `eVertex2` by adding (or subtracting) `eSteps`. Finally, another sweep in order to return to `eBegin` is done. This corresponds to a cycle and it will be done as many times as `cycles` states.
 
 ##### Chronoamperometry
 Finally, the following diagram shows the behavior of the microcontroller when a chronoamperometry has to be done.
@@ -143,6 +143,7 @@ Finally, the following diagram shows the behavior of the microcontroller when a 
 </a>
 </p>
 For this technique, the tension Vcell is set and stays constant for the time indicated in `measurementTime`. The sample is acquired following the period indicated in `samplingPeriodMs`.
+
 ## Results 
 
 Due to the [COVID-19](#https://covid19.who.int/) situation, in which the project has been carried out, the codes programmed during the project haven't been tested and a proof of concept couldn't be performed. 
