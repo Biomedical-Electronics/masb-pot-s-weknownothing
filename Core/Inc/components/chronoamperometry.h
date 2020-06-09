@@ -13,6 +13,18 @@
 
 #include "stm32f4xx_hal.h"
 
+#ifndef TRUE
+    #define TRUE				1
+#endif
+
+#ifndef FALSE
+    #define FALSE				0
+#endif
+
+
+#define relayClosed GPIO_PIN_SET
+#define relayOpened GPIO_PIN_RESET
+
 struct CA_Configuration_S {
 
 	double eDC;
@@ -20,5 +32,9 @@ struct CA_Configuration_S {
 	uint32_t measurementTime;
 
 };
+
+
+//prototype
+void ChronoAmperometry(void);
 
 #endif /* INC_COMPONENTS_CHRONOAMPEROMETRY_H_ */
