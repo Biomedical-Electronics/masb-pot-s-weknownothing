@@ -20,7 +20,6 @@ void setup(void){
 
 void loop(void){
 
-	struct Data_S data;
 
 	if (MASB_COMM_S_dataReceived()){
 
