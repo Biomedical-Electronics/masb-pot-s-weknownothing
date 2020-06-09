@@ -25,7 +25,7 @@ double Obtain_Icell(void){
 	return Icell;
 }
 
-double Obtain_Vcell(double Vadc){
+double Obtain_Vcell(void){
 	Vadc= Cell_measures();
 
 	Vcell= (1.65-Vadc)*2;
