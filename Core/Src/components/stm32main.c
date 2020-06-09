@@ -1,19 +1,19 @@
 #include "components/stm32main.h"
 #include "components/masb_comm_s.h"
+#include "components/chronoamperometry.h"
+#include "components/cyclic_voltammetry.h"
 
 struct CV_Configuration_S cvConfiguration; // save cv config
 struct CA_Configuration_S caConfiguration; //save ca config
-uint8_t State = 03;
 
-uint8_t obtainState(uint8_t Estado){
-	State= Estado;
-			return State;
-}
 
 // executed function before while loop (just once)
 
 void setup(void){
-	MASB_COMM_S_waitForMessage(); //waiting fir message
+	MASB_COMM_S_controlPMU();
+	MASB_COMM_S_waitForMessage(); //waiting for message
+
+
 }
 
 //executed function in the while loop
@@ -28,16 +28,16 @@ void loop(void){
 
 		case START_CV_MEAS: // if a CV is wanted
 			cvConfiguration = MASB_COMM_S_getCvConfiguration();//save CV configuration
-			obtainState(CV);
+			CyclicVoltammetry();
 			break;
 
 		case START_CA_MEAS:
 			caConfiguration = MASB_COMM_S_getCaConfiguration(); //save CA configuration
-			obtainState(CA);
+			ChronoAmperometry();
 			break;
 
 		case STOP_MEAS:
-			obtainState(IDLE);
+
 			break;
 
 		default:
@@ -46,23 +46,6 @@ void loop(void){
 		MASB_COMM_S_waitForMessage();
 	}else{
 
-		switch (obtainSate()){ //check state
-
-		case CV:
-			//obtain next point
-			//send point to host
-		//is point =last
-			obtainState(IDLE);
-			break;
-		case CA:
-			//obtain next point
-			//send point to host
-			//if point =last
-			obtainState(IDLE);
-			break;
-		case IDLE:
-			break;
-		}
 	}
 
 }
