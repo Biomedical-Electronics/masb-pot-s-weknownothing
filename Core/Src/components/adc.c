@@ -15,9 +15,19 @@ double Cell_measures(void){
 	HAL_ADC_PollForConversion(&hadc1, 200); // wait until conversion
 
 	Vadc = HAL_ADC_GetValue(&hadc1);
+	return Vadc;
+}
+
+double Obtain_Icell(void){
+	Vadc = Cell_measures();
+
+	Icell= ((Vadc-1.65)*2)/R_TIA;
+	return Icell;
+}
+
+double Obtain_Vcell(double Vadc){
+	Vadc= Cell_measures();
 
 	Vcell= (1.65-Vadc)*2;
-	Icell= ((Vadc-1.65)*2)/R_TIA;
-
 	return Vcell;
 }
