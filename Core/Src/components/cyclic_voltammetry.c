@@ -13,11 +13,8 @@
 #include "components/adc.h"
 #include "components/dac.h"
 
-relayClosed = GPIO_PIN_SET;
-relayOpened = GPIO_PIN_RESET;
-
-double Vcell = 0;
-double vObjetivo= 0;
+double Vcell;
+double vObjetivo;
 _Bool wait;
 
 struct CV_Configuration_S cvConfiguration;
@@ -26,18 +23,21 @@ struct Data_S data;
 
 void CyclicVoltammetry(void){
 	for (double i =0; i < cvConfiguration.cycles; i++){
-		Vcell = SendVoltageToDAC(cvConfiguration.eBegin); //set Vcell as eBegin
+		SendVoltageToDAC(cvConfiguration.eBegin); //set Vcell as eBegin
+
 		vObjetivo = cvConfiguration.eVertex1;
+
 		HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, relayClosed); //closing relay
 		wait = TRUE;
 		SamplingPeriodTimerCV();
 		while (wait){}; //while the period has not passed, wait
-		VandI = Cell_measures(); //adc function to measure Vcell and Icell
+
 		data.point= i ;
-		data.current = VandI[1];
-		data.voltage= VandI[0] ;
-		data.timeMs= data.point *  ;
+		data.current = Obtain_Icell();
+		data.voltage= Obtain_Vcell() ;
+
 		MASB_COMM_S_sendData(data);
+
 		if (Vcell == vObjetivo){
 			if (vObjetivo == cvConfiguration.eVertex1){
 				vObjetivo = cvConfiguration.eVertex2;

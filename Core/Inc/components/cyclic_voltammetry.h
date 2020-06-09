@@ -24,6 +24,9 @@
 #define RELAY_Pin GPIO_PIN_5
 #define RELAY_GPIO_Port GPIOB
 
+#define relayClosed GPIO_PIN_SET
+#define relayOpened GPIO_PIN_RESET
+
 struct CV_Configuration_S {
 
 	double eBegin;
