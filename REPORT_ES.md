@@ -13,7 +13,7 @@ El potenciostato utiliza tres electrodos:
 
 ​	b) _Reference electrode_ (RE) utilizado para medir el potencial en WE. 
 
-​	c) Electrodo auxiliar (AUX) responsable de adminisrtar la corriente requerida por la reacción electroquímica en el WE.
+​	c) Electrodo auxiliar (AUX) responsable de administrar la corriente requerida por la reacción electroquímica en el WE.
 
 <p align="center">
 <a href="Docs/assets/imgs/potentiostat.png">
@@ -21,7 +21,7 @@ El potenciostato utiliza tres electrodos:
 </a>
 </p>
 
-> Potentiostato. [[Source](https://en.wikipedia.org/wiki/Potentiostat)]
+> Potenciostato. [[Source](https://en.wikipedia.org/wiki/Potentiostat)]
 
 Entre las técnicas electroquímicas utilizadas en un potenciostato destacan le voltammetría cíclica y la cronoamperometría.
 
@@ -38,13 +38,13 @@ Una [cronoamperometría](#https://www.sciencedirect.com/topics/chemistry/chronoa
 ## Contenido
 
 - [Introducción](#proyecto-potenciostato)
-  - [¿Qué es un potenciostato?](#¿-que-es-un-potenciostato-?)
+  - [¿Qué es un potenciostato?](#que-es-un-potenciostato)
   - [Voltammetría cíclica](#voltammetria-ciclica)
   - [Cronoamperometría](#cronoamperometria)
 - [Objetivo](#objetivo)
 - [Desarrollo del proyecto](#desarrollo-del-proyecto)
   - [Workflow](#workflow)
-  - [¿Cómo funciona?](#¿-como-funciona-?)
+  - [¿Cómo funciona?](#como-funciona)
   	- [Power Management Unit (PMU)](#power-management-unit-pmu)
   	- [Relé](#rele)
   	- [Potenciostato](#potenciostato)
@@ -75,8 +75,8 @@ A partir de la rama **master** el repositorio remoto se clona y a continuación 
 
 Una vez completos, los códigos de las ramas **feature** se unirán a la rama **develop** para finalmente hacer un **Pull request** a la rama **master**.
 
-### Cómo funciona?
-Para este proyecto, se utilizará el software [viSens-S](#https://github.com/Albert-Alvarez/viSens-S/releases/tag/v0.1.0)  como _host_ . Este host funcionará como _master_ y en él se  realizará la configuración de los parámetros que serán enviados al microcontrolador (_slave_) siguiendo el protocolo de codificación [COBS](#https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing) con 0x00 como `term char` .
+### ¿ Cómo funciona ?
+Para este proyecto, se utilizará el software [viSens-S](#https://github.com/Albert-Alvarez/viSens-S/releases/tag/v0.1.0)  como _host_ . Este host funcionará como _master_ y en él se  realizará la configuración de los parámetros que serán enviados al microcontrolador (_slave_) siguiendo el protocolo de codificación [COBS](#https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing) con `0x00` como `term char` .
 Una vez recibidas las instrucciones pertinentes, el programa enviará la tensión de celda establecida a través de un DAC modelo [MPC4725](#http://ww1.microchip.com/downloads/en/DeviceDoc/22039d.pdf) con comunicación sincrónica I<sup>2</sup>C. A la vez, con el ADC del microcontrolador se leerá una tensión V<sub>ADC</sub> correspondiente a la tensión del RE V<sub>REF</sub> a partir de la cual se podrá obtener la tensión de la celda V<sub>CELL</sub>  según la siguiente fórmula:
 
 <p align="center">
@@ -106,8 +106,8 @@ A continuación de detallan los flujos de ejecución a diferentes niveles:
 En el siguiente flujo se aprecia la interacción del usuario con la aplicación viSense-S y la aplicación en general.
 
 <p align="center">
-<a href="Docs/assets/imgs/Aplication_es.png">
-<img src="Docs/assets/imgs/Aplication_es.png" alt="Flow" width=400 />
+<a href="Docs/assets/imgs/Aplication_ES.png">
+<img src="Docs/assets/imgs/Aplication_ES.png" alt="Flow" width=400 />
 </a>
 </p>
 
@@ -136,7 +136,7 @@ Finalmente, en el siguiente flujo el funcionamiento del microcontrolador cuando 
 </p>
 En esta técnica se fija una tensión constante (Vcell) durante el tiempo indicado en `measurementTime`. La muestra se toma según el periodo indicado en `samplingPeriodMs`.
 ## Resultados
-A causa de la situación actual causada por la [COVID-19](#https://covid19.who.int/) los códigos creados durante este proyecto no han podido ser testeados y por tanto no se ha podido realizar una prueba de concepto.
+A causa de la situación actual causada por la [COVID-19](https://covid19.who.int/) los códigos creados durante este proyecto no han podido ser testeados y por tanto no se ha podido realizar una prueba de concepto.
 
 ## Conclusiones
 Con este proyecto se han podido revisar todos los contenidos estudiados en la asignatura MASB y se han podido poner en práctica.

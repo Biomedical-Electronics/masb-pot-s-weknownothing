@@ -22,7 +22,7 @@ Two important electrochemical techniques that can be applied using a potentiosta
 
 #### Cyclic Voltammetry
 
-[Cyclic Voltammetry](#https://pubs.acs.org/doi/10.1021/acs.jchemed.7b00361) (CV) is a electrochemical technique commonly employed to investigate the reduction and oxidation processes of molecular species.  It is [performed](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Instrumental_Analysis/Cyclic_Voltammetry#:~:text=Cyclic%20Voltammetry%20(CV)%20is%20an,and%20measuring%20the%20resulting%20current.](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Instrumental_Analysis/Cyclic_Voltammetry#:~:text=Cyclic Voltammetry (CV) is an,and measuring the resulting current) by cycling the potential of a working electrode, and measuring the resulting current. The potential of the WE is measured against a RE which maintains a constant potential, and it is performed starting from greater potential and ending at a lower potential, to later perform the reverse scan. This performance is repeated during a specific number of cycles. 
+[Cyclic Voltammetry](#https://pubs.acs.org/doi/10.1021/acs.jchemed.7b00361) (CV) is a electrochemical technique commonly employed to investigate the reduction and oxidation processes of molecular species.  It is [performed](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Instrumental_Analysis/Cyclic_Voltammetry#:~:text=Cyclic%20Voltammetry%20(CV)%20is%20an,and%20measuring%20the%20resulting%20current.) by cycling the potential of a working electrode, and measuring the resulting current. The potential of the WE is measured against a RE which maintains a constant potential, and it is performed starting from greater potential and ending at a lower potential, to later perform the reverse scan. This performance is repeated during a specific number of cycles. 
 
 A CV system consists of an electrolysis cell, a potentiostat, a current-to-voltage converter, and a data acquisition system. 
 
@@ -33,13 +33,13 @@ A CV system consists of an electrolysis cell, a potentiostat, a current-to-volta
 ## Content
 
 - [Introduction](#potentiostat-project)
-  - [What is a potentiostat?](#what-is-a-potentiostat-?)
+  - [What is a potentiostat?](#what-is-a-potentiostat)
   - [Cyclic Voltammetry](#cyclic-voltammetry)
   - [Chronoamperometry](#chronoamperometry)
 - [Objective](#objective)
 - [Project development](#Project-development) 
   - [Workflow](#workflow)
-  - [How does it work?](#How-does-it-work-?)
+  - [How does it work?](#How-does-it-work)
   - [Flow diagrams](#flow-diagrams)
 - [Results](#results)
 - [Conclusions](#conclusions)
@@ -108,7 +108,9 @@ The potentiostat is used to polarize the electrochemical cell to V<sub>CELL</sub
 ### Flow Diagram
 
 The following flow diagram explain the execution of the program at different levels:
+
 ##### Main application
+
 In the following flow the interaction between the user and the viSense-S application is showed.
 <p align="center">
 <a href="Docs/assets/imgs/flow-project.png">
@@ -116,7 +118,8 @@ In the following flow the interaction between the user and the viSense-S applica
 </a>
 </p>
 ##### Microcontroller
-The flow diagram below shows how the microntroller operates depending on the instruction received:
+
+The flow diagram below shows how the microcontroller operates depending on the instruction received:
 <p align="center">
 <a href="Docs/assets/imgs/Main application_eng.png">
 <img src="Docs/assets/imgs/Main application_eng.png" alt="Microcontroller flow" width=400 />
@@ -130,7 +133,7 @@ The following flow explains the operation of the microcontroller if a cyclic vol
 <img src="Docs/assets/imgs/Voltammetry_eng.png" alt="Voltammetry flow" width=400 />
 </a>
 </p>
-As explained before, when performing a cyclic voltammetry, a voltage sweep is to be performed. This is done by applying a starting tension `eBegin`that is then increased or decrease until achieving `eVertex1`or `eVertex2` by adding (or substracting) `eSteps`. Finally, another sweep in order to return to `eBegin`is done. This corresponds to a cycle and it will be done as many times as `cycles`states.
+As explained before, when performing a cyclic voltammetry, a voltage sweep is to be performed. This is done by applying a starting tension `eBegin`that is then increased or decrease until achieving `eVertex1`or `eVertex2` by adding (or subtracting) `eSteps`. Finally, another sweep in order to return to `eBegin`is done. This corresponds to a cycle and it will be done as many times as `cycles` states.
 
 ##### Chronoamperometry
 Finally, the following diagram shows the behavior of the microcontroller when a chronoamperometry has to be done.
