@@ -23,6 +23,11 @@
 #define START_CA_MEAS		0x02
 #define STOP_MEAS			0x03
 
+#define EN_Pin GPIO_PIN_5
+#define EN_GPIO_Port GPIOA
+
+#define PMUenabled GPIO_PIN_SET
+
 #ifndef TRUE
     #define TRUE				1
 #endif
@@ -41,6 +46,7 @@ struct Data_S {
 };
 
 // Prototypes.
+void MASB_COMM_S_controlPMU(void);
 void MASB_COMM_S_waitForMessage(void);
 _Bool MASB_COMM_S_dataReceived(void);
 uint8_t MASB_COMM_S_command(void);
